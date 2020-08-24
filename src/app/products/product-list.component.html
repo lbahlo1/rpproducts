@@ -1,0 +1,83 @@
+<div class="card-body">
+	<!-- For Traditional Approach -->
+	<!-- <div class="row">
+		<div class="col-md-12">&nbsp;</div>
+	</div>
+	<h2>Product List: Plain Angular</h2>
+	<div class="row">
+		<div class="col-md-12">&nbsp;</div>
+	</div>
+	<table class="col-lg-8" id="callingHours-id" style="background-color: white;">
+		<thead>
+			<tr>
+				<th class="bordered-cell" style="width: 30%;">Product Name</th>
+				<th class="bordered-cell">Product Code</th>
+				<th class="bordered-cell">Product Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<ng-template ngFor let-prod [ngForOf]="prodPlainList" let-i="index">
+				<tr>
+					<td>
+						{{prod.productName}}
+					</td>
+					<td>
+						{{prod.productCode}}
+					</td>
+					<td>
+						{{prod.productdescription}}
+					</td>
+				</tr>
+
+			</ng-template>
+
+		</tbody>
+	</table> -->
+	<h2>Product List: Using Reactive Programming in Angular</h2>
+	<h5>Check the product component HTML and un comment to check the traditional way to implement Product List</h5>
+  <p> Check
+    <a target="_blank" href="https://medium.com/@codingindepth"> Coding In Depth</a> for more details.
+    </p>
+	<div class="row">
+		<div class="col-md-12">&nbsp;</div>
+	</div>
+
+	<div class="row required-field">
+		<div class="col-md-2">
+			<label class="cus-form-label">Search Products </label>
+		</div>
+		<div class="col-md-8">
+
+			<input type="text" [(ngModel)]="searchText" (input)="searchProducts(searchText)" />
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">&nbsp;</div>
+		</div>
+
+		<div class="table-responsive">
+			<table class="table mb-0" *ngIf="productList$ | async as productlist">
+				<thead>
+					<tr>
+						<th class="bordered-cell" style="width: 30%;">Product Name</th>
+						<th class="bordered-cell">Product Code</th>
+						<th class="bordered-cell">Product Description</th>
+					</tr>
+				</thead>
+				<tbody *ngFor="let prod of productlist">
+					<tr>
+						<td>
+							{{prod.productName}}
+						</td>
+						<td>
+							{{prod.productCode}}
+						</td>
+						<td>
+							{{prod.productdescription}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
